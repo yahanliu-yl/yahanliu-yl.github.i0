@@ -6,39 +6,6 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="icon.png" type="image/png">
     <title>YAHAN LIU | IDEAS</title>
-    
-    <style>
-        /* --- 这里是专门给“点击变大”加的特效样式 --- */
-
-        /* 1. 遮罩层：平时隐藏，激活时变黑 */
-        #overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.6); /* 半透明黑色 */
-            z-index: 998; /* 在云朵下面，但在其他内容上面 */
-            opacity: 0; pointer-events: none; /* 平时看不见也不能点 */
-            transition: opacity 0.3s ease;
-        }
-        #overlay.active {
-            opacity: 1; pointer-events: auto;
-        }
-
-        /* 2. 云朵被选中时的状态 */
-        .cloud-card.expanded {
-            position: fixed !important; /* 强制固定在屏幕上 */
-            top: 50% !important;        /* 垂直居中 */
-            left: 50% !important;       /* 水平居中 */
-            transform: translate(-50%, -50%) scale(1.3) rotate(0deg) !important; /* 放大1.3倍，并扶正（不倾斜） */
-            z-index: 999;               /* 保证在最最上面 */
-            background: rgba(255, 255, 255, 0.95); /* 背景变实，方便阅读 */
-            width: auto;
-            max-width: 80%;             /* 手机上也不会撑破屏幕 */
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.8); /* 发光效果 */
-            cursor: zoom-out;           /* 鼠标变成缩小图标 */
-        }
-        
-        /* 鼠标放上去提示可以点击 */
-        .cloud-card { cursor: zoom-in; }
-    </style>
 </head>
 
 <body style="background-image: url('ideas.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
@@ -127,20 +94,26 @@
     function toggleExpand(card) {
         const overlay = document.getElementById('overlay');
         
-        // 检查这个卡片是不是已经变大了
+        // 如果已经打开了，就关闭
         if (card.classList.contains('expanded')) {
-            // 如果已经变大，就缩小
             card.classList.remove('expanded');
             overlay.classList.remove('active');
         } else {
-            // 先把其他所有卡片都关掉（防止重叠）
+            // 先关闭其他所有的
             document.querySelectorAll('.cloud-card').forEach(c => c.classList.remove('expanded'));
             
-            // 把当前这个变大
+            // 打开当前这个
             card.classList.add('expanded');
             overlay.classList.add('active');
         }
     }
 
-    // 点击黑色背景也可以关闭
+    // 点击黑色背景关闭
     document.getElementById('overlay').addEventListener('click', function() {
+        document.querySelectorAll('.cloud-card').forEach(c => c.classList.remove('expanded'));
+        this.classList.remove('active');
+    });
+</script>
+
+</body>
+</html>
