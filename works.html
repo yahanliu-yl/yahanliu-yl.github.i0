@@ -5,149 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="icon.png" type="image/png">
-    <title>YAHAN LIU | IDEAS</title>
-    
-    <style>
-        /* --- 这里是专门给“点击变大”加的特效样式 --- */
-
-        /* 1. 遮罩层：平时隐藏，激活时变黑 */
-        #overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.6); /* 半透明黑色 */
-            z-index: 998; /* 在云朵下面，但在其他内容上面 */
-            opacity: 0; pointer-events: none; /* 平时看不见也不能点 */
-            transition: opacity 0.3s ease;
-        }
-        #overlay.active {
-            opacity: 1; pointer-events: auto;
-        }
-
-        /* 2. 云朵被选中时的状态 */
-        .cloud-card.expanded {
-            position: fixed !important; /* 强制固定在屏幕上 */
-            top: 50% !important;        /* 垂直居中 */
-            left: 50% !important;       /* 水平居中 */
-            transform: translate(-50%, -50%) scale(1.3) rotate(0deg) !important; /* 放大1.3倍，并扶正（不倾斜） */
-            z-index: 999;               /* 保证在最最上面 */
-            background: rgba(255, 255, 255, 0.95); /* 背景变实，方便阅读 */
-            width: auto;
-            max-width: 80%;             /* 手机上也不会撑破屏幕 */
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.8); /* 发光效果 */
-            cursor: zoom-out;           /* 鼠标变成缩小图标 */
-        }
-        
-        /* 鼠标放上去提示可以点击 */
-        .cloud-card { cursor: zoom-in; }
-    </style>
+    <title>YAHAN LIU | WORKS</title>
 </head>
-
-<body style="background-image: url('ideas.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
-
-<div id="overlay"></div>
+<body>
 
 <nav>
     <a href="index.html">HOME</a>
-    <a href="works.html">WORKS</a>
-    <a href="ideas.html" class="active">IDEAS</a>
+    <a href="works.html" class="active">WORKS</a>
+    <a href="ideas.html">IDEAS</a>
     <a href="others.html">OTHERS</a>
 </nav>
 
-<div class="sky-container">
+<div class="container">
+    <header>
+        <div>
+            <h1>Yahan Liu</h1>
+            <p style="margin-top:5px; font-size:0.9rem;">/// VISUAL ARTIST ///</p>
+        </div>
+        <div class="bio-box">
+            BORN: 2006, BJ<br>
+            BASE: ANN ARBOR<br>
+            STATUS: ARCHIVE
+        </div>
+    </header>
 
-    <div class="cloud-card" style="top: 10%; left: 5%;" onclick="toggleExpand(this)">
-        <div class="cloud-title">🎧 Loop Songs</div>
-        <div class="cloud-content">
-            1. Babydoll (Dominic Fike) <br>
-            2. Pink Pony Club (Chappell Roan)<br>
-            3. Chosen (Blood Orange) <br>
-            4. After Hours (The Weeknd) <br>
-            <br>
-            *Music creates the space.*
+    <div class="ticker-wrap">
+        <div class="ticker">
+            *** WELCOME TO THE ARCHIVE *** YAHAN LIU *** VISUAL ARTS / MIXED MEDIA *** SCROLL TO VIEW ***
         </div>
     </div>
 
-    <div class="cloud-card" style="top: 5%; left: 65%;" onclick="toggleExpand(this)">
-        <div class="cloud-title">👀 Eyes On</div>
-        <div class="cloud-content">
-            Jennie-like Jennie<br>
-            Chappell Roan<br>
-            Pipilotti Rist<br>
-            NYFW (for school..)<br>
-            ...and friends in Art School.
+    <div class="grid">
+        <div class="item">
+            <a href="project1.html" style="text-decoration:none; cursor:pointer;">
+                <div class="img-wrapper">
+                    <img src="Photo1.JPG" alt="Body Series">
+                </div>
+            </a>
+            <div class="meta">
+                <span>01. HEALING PROCESS</span>
+                <span>PHOTO</span>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="img-wrapper">
+                <img src="photo2.JPG" alt="Portrait">
+            </div>
+            <div class="meta">
+                <span>02. IDENTITY PLAY</span>
+                <span>PERFORMANCE</span>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="img-wrapper">
+                <img src="photo_3.JPG" alt="Sculpture">
+            </div>
+            <div class="meta">
+                <span>03. ORGANIC FORM</span>
+                <span>INSTALLATION</span>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="img-wrapper">
+                <img src="photo_4.jpg" alt="Fabric">
+            </div>
+            <div class="meta">
+                <span>04. DISTORTION</span>
+                <span>DIGITAL</span>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="img-wrapper">
+                <img src="Photo_5.jpg" alt="Glitch">
+            </div>
+            <div class="meta">
+                <span>05. TEXTURE GLITCH</span>
+                <span>MIXED</span>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="img-wrapper">
+                <img src="photo_6.jpg" alt="Collage">
+            </div>
+            <div class="meta">
+                <span>06. FUTURE OF HUMAN?</span>
+                <span>COLLAGE</span>
+            </div>
         </div>
     </div>
 
-    <div class="cloud-card" style="top: 35%; left: 10%; width: 120px; text-align:center; border-radius: 50%;" onclick="toggleExpand(this)">
-        <div style="font-size: 2.5rem;">🐟</div>
-        <div class="cloud-content" style="font-size: 0.7rem;">Just keep swimming...</div>
-    </div>
-
-    <div class="cloud-card" style="top: 25%; left: 45%; width: 350px; min-height: 200px; transform: rotate(-2deg);" onclick="toggleExpand(this)">
-        <div class="cloud-title">📓 Dear Diary...</div>
-        <div class="cloud-content" style="line-height: 1.8;">
-            <p><strong>Feb 04, 2026</strong></p>
-            <p>Just set up my new website archive.</p>
-            <p>(Space reserved for future thoughts, messy drafts, and midnight feelings...)</p>
-            <br>
-            <em>...writing...</em>
-        </div>
-    </div>
-
-    <div class="cloud-card" style="top: 60%; left: 8%;" onclick="toggleExpand(this)">
-        <div class="cloud-title">🍳 Mood</div>
-        <div class="cloud-content">
-            Tired of Kpop.<br>
-            Low saturation.<br>
-            Fried eggs on a Sunday.<br>
-        </div>
-    </div>
-
-    <div class="cloud-card" style="top: 65%; left: 70%;" onclick="toggleExpand(this)">
-        <div class="cloud-title">📈 Current Obsession</div>
-        <div class="cloud-content">
-            Finding Internships <br>
-            Texture of 240p videos.<br>
-            Transparent electronics.
-        </div>
-    </div>
-
-    <div class="cloud-card" style="top: 85%; left: 35%; width: 300px; background: rgba(255,255,255,0.8); border: 1px dashed #000;" onclick="toggleExpand(this)">
-        <div class="cloud-title">🤝 Dream to Collab With?</div>
-        <div class="cloud-content">
-            Yechan Shin!! <br>
-            I want to work with music artists (on a album cover..?).<br>
-            <br>
-            <strong>DM me if u r interested. ^^</strong>
-        </div>
-    </div>
-
+    <footer>
+        <p>CONTACT: YAHANLIU [AT] UMICH.EDU</p>
+        <p>© 2026 YAHAN LIU. ALL RIGHTS RESERVED.</p>
+    </footer>
 </div>
-
-<script>
-    function toggleExpand(card) {
-        const overlay = document.getElementById('overlay');
-        
-        // 检查这个卡片是不是已经变大了
-        if (card.classList.contains('expanded')) {
-            // 如果已经变大，就缩小
-            card.classList.remove('expanded');
-            overlay.classList.remove('active');
-        } else {
-            // 先把其他所有卡片都关掉（防止重叠）
-            document.querySelectorAll('.cloud-card').forEach(c => c.classList.remove('expanded'));
-            
-            // 把当前这个变大
-            card.classList.add('expanded');
-            overlay.classList.add('active');
-        }
-    }
-
-    // 点击黑色背景也可以关闭
-    document.getElementById('overlay').addEventListener('click', function() {
-        document.querySelectorAll('.cloud-card').forEach(c => c.classList.remove('expanded'));
-        this.classList.remove('active');
-    });
-</script>
 
 </body>
 </html>
