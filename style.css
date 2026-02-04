@@ -181,8 +181,10 @@ footer {
     max-width: 1000px;
     margin: 0 auto;
     position: relative;
-    height: 100vh; /* 占满全屏高度 */
-    overflow: hidden; /* 防止云朵飘出去 */
+    min-height: 100vh;   /* ✨ 改成 min-height：至少一屏，但内容多了自动变长 */
+    overflow-x: hidden;  /* ✨ 只禁止横向滚动，允许竖向滚动 */
+    overflow-y: auto;    /* ✨ 允许竖向滚动 */
+    padding-bottom: 100px; /* ✨ 给底部留点呼吸空间，防止云朵贴底 */
 }
 
 /* 云朵卡片基础样式 */
