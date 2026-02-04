@@ -94,21 +94,16 @@
     function toggleExpand(card) {
         const overlay = document.getElementById('overlay');
         
-        // 如果已经打开了，就关闭
         if (card.classList.contains('expanded')) {
             card.classList.remove('expanded');
             overlay.classList.remove('active');
         } else {
-            // 先关闭其他所有的
             document.querySelectorAll('.cloud-card').forEach(c => c.classList.remove('expanded'));
-            
-            // 打开当前这个
             card.classList.add('expanded');
             overlay.classList.add('active');
         }
     }
 
-    // 点击黑色背景关闭
     document.getElementById('overlay').addEventListener('click', function() {
         document.querySelectorAll('.cloud-card').forEach(c => c.classList.remove('expanded'));
         this.classList.remove('active');
